@@ -13,10 +13,11 @@ export const startNewNote = () => {
         const { uid } = getState().auth;
 
         const newNote = {
-            title: '',
-            body: '',
+            title: "",
+            body: "",
+            imageUrls:[],
             date: new Date().getTime(),
-        }
+        };
         
         const newDoc = doc( collection( FirebaseDB, `${ uid }/journal/notes`));
         await setDoc( newDoc, newNote );

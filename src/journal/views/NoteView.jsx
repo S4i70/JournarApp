@@ -20,7 +20,7 @@ export const NoteView = () => {
 
   const dateString = useMemo( () => {
     const newDate = new Date( date );
-    return newDate.toUTCString();
+    return newDate.toLocaleString();
   },[date]);
 
   const fileInputRef = useRef();
@@ -75,8 +75,10 @@ export const NoteView = () => {
           color="primary"
           disabled={ isSaving }
           onClick={ () => fileInputRef.current.click()}
+          sx={{ fontSize: 20, mr: 1 }}
         >
-          <UploadFileOutlined/>
+          <UploadFileOutlined sx={{mr:1}}/>
+          Subir imagen
         </IconButton>
         <Button
           disabled= { isSaving }

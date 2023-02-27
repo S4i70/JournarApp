@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AddOutlined } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
@@ -30,7 +29,7 @@ export const JournalPages = () => {
         onClick={onStartNewNote}
         size="large"
         sx={{
-          color: "white",
+          color: "black",
           backgroundColor: "error.main",
           hover: { backgroundColor: "error.main", opacity: 0.9 },
           position: "fixed",
