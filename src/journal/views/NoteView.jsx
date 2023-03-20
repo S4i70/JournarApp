@@ -14,7 +14,7 @@ export const NoteView = () => {
 
   const dispatch = useDispatch();
 
-  const { active: note, messageSaved, isSaving } = useSelector(state => state.journal);
+  const { active: note, messageSaved, imageSaved, isSaving } = useSelector(state => state.journal);
 
   const { body, title, date, onInputChange, formState } = useForm( note );
 
@@ -34,6 +34,12 @@ export const NoteView = () => {
       Swal.fire('Nota Actualizada', messageSaved, 'success')
     }
   }, [messageSaved])
+  
+  useEffect(() => {
+    if( imageSaved.length > 0 ) {
+      Swal.fire('Galeria Actualizada', imageSaved, 'success')
+    }
+  }, [imageSaved])
   
   const onFileInputChange = ({ target }) =>{
   

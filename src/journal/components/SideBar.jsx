@@ -25,11 +25,11 @@ export const SideBar = ({ drawerWidth = 240 }) => {
         open
         sx={{
           display: { xs: "block" },
-          "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
+          "& .MuiDrawer-paper": { boxSizing: "border-box", width: {sm: drawerWidth, xs: 73} },
         }}
       >
         <Toolbar>
-          <Typography variant="h6" noWrap component="div">
+          <Typography variant="h4" noWrap component="div">
             { displayName }
           </Typography>
         </Toolbar>

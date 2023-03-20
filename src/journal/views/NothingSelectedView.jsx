@@ -11,9 +11,10 @@ export const NothingSelectedView = () => {
       alignItems="center"
       justifyContent="center"
       sx={{
+        // width: { xs:`calc(100% - 73px)` },
         minHeight: "calc(100vh - 110px)",
         backgroundColor: "primary.main",
-        borderRadius: 2,
+        borderRadius: 3,
       }}
     >
       <Grid item xs={12}>
