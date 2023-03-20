@@ -50,7 +50,7 @@ export const journalSlice = createSlice({
         setPhotosToActiveNote: (state, action) => {
             state.active.imageUrls = [...state.active.imageUrls, ...action.payload]; 
             state.isSaving = false;
-            state.imageSaved = "Imagen guardada correctamente";
+            state.imageSaved = "Imagen subida correctamente, no olvides dar en el botón GUARDAR";
         },
         clearNotesLogout: (state) => {
             state.isSaving = false;
