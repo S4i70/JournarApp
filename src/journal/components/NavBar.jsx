@@ -33,7 +33,7 @@ export const NavBar = ({ drawerWidth }) => {
           justifyContent="space-between"
           alignItems="center"
         >
-          <Typography variant="h6" noWrap component="div">
+          <Typography variant="h5" noWrap component="div">
             JournalApp
           </Typography>
           <IconButton 
