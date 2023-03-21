@@ -4,6 +4,7 @@ export const journalSlice = createSlice({
     name: 'journal',
     initialState: {
         isSaving: false,
+        isUpload: false,
         messageSaved: '',
         imageSaved: '',
         notes: [],
@@ -23,6 +24,7 @@ export const journalSlice = createSlice({
         addNewEmptyNote: (state, action) => {
             state.notes.push(action.payload);
             state.isSaving = false;
+            state.isUpload = false;
         },
         setActiveNote: (state, action) => {
             state.active = action.payload;
@@ -32,6 +34,9 @@ export const journalSlice = createSlice({
         setNotes: (state, action) => {
             state.notes = action.payload;
         },
+        setUpload: ( state ) => {
+            state.isUpload = true;
+        },
         setSaving: ( state ) => {
             state.isSaving = true;
             state.messageSaved = '';
@@ -39,6 +44,7 @@ export const journalSlice = createSlice({
         },
         updateNote: (state, action) => {
             state.isSaving = false;
+            state.isUpload = false;
             state.notes = state.notes.map( note => {
 
                 if(note.id === action.payload.id)
@@ -50,10 +56,12 @@ export const journalSlice = createSlice({
         setPhotosToActiveNote: (state, action) => {
             state.active.imageUrls = [...state.active.imageUrls, ...action.payload]; 
             state.isSaving = false;
+            state.isUpload = false;
             state.imageSaved = "Imagen subida correctamente, no olvides dar en el botón GUARDAR";
         },
         clearNotesLogout: (state) => {
             state.isSaving = false;
+            state.isUpload = false;
             state.messageSaved = '';
             state.imageSaved= '';
             state.notes = [];
@@ -77,5 +85,6 @@ export const {
     updateNote,
     deleteNoteById,
     setPhotosToActiveNote,
-    clearNotesLogout
+    clearNotesLogout,
+    setUpload
 } = journalSlice.actions;

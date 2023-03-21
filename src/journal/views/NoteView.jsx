@@ -9,6 +9,7 @@ import 'sweetalert2/dist/sweetalert2.css';
 import { useForm } from "../../hooks/useForm";
 import { ImageGallery } from "../components/ImageGallery";
 import { startSaveNote,setActiveNote, startUploadingFiles, startDeleteNote } from "../../store/journal";
+import { Isloading } from "../components/Isloading";
 
 export const NoteView = () => {
 
@@ -102,7 +103,7 @@ export const NoteView = () => {
           variant="filled"
           fullWidth
           placeholder="Ingrese título"
-          label="titulo"
+          label="Titulo"
           sx={{ border: "none", mb: 1 }}
           name="title"
           value={ title }
@@ -114,7 +115,7 @@ export const NoteView = () => {
           multiline
           fullWidth
           placeholder="¿Qué paso hoy?"
-          label="titulo"
+          label="Nota"
           minRows={5}
           name="body"
           value={ body }
@@ -129,13 +130,14 @@ export const NoteView = () => {
           color="error"
         >
           <DeleteOutline/>
-          Borre
+          Borrar Nota
         </Button>
       </Grid>
 
         <ImageGallery
           images= { note.imageUrls }
         />
+      
     </Grid>
   );
 };

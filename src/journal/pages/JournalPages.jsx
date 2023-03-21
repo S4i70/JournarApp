@@ -1,14 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
 import { AddOutlined } from "@mui/icons-material";
-import { IconButton } from "@mui/material";
+import { Box, Grid, Icon, IconButton, Typography } from "@mui/material";
 import { JournalLayout } from "../layout/JournalLayout";
 import { NoteView } from "../views";
 import { NothingSelectedView } from "../views/NothingSelectedView";
 import { startNewNote  } from "../../store/journal/thunks";
+import { Isloading } from "../components/Isloading";
 
 export const JournalPages = () => {
   
-  const { isSaving, active } = useSelector(state => state.journal);
+  const { isSaving, active, isUpload } = useSelector(state => state.journal);
   
   const dispatch = useDispatch();
 
@@ -23,7 +24,11 @@ export const JournalPages = () => {
       {
         ( active === null ? <NothingSelectedView /> :  <NoteView />  )
       }
-
+      <Grid item>
+        {
+          ( isUpload === false ? " " :  <Isloading/>  )
+        }
+      </Grid>
       <IconButton
         disabled={ isSaving }
         onClick={onStartNewNote}

@@ -3,7 +3,6 @@ import { NavBar } from "../components/NavBar";
 import { SideBar } from "../components/SideBar";
 
 const drawerWidth = 240;
-const drawerWidthXs= 73;
 
 export const JournalLayout = ({ children }) => {
   return (
